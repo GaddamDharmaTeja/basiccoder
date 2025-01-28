@@ -1,0 +1,111 @@
+/* General Styling */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  /*background: rgba(255, 255, 255, 0.8);  Semi-transparent background */
+  z-index: 20;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.background-image {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tabs Navigation Styling */
+.tabs-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.tab-button {
+  background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.tab-button.active {
+  background: rgba(255, 255, 255, 0.9); /* Slightly less transparent when active */
+  font-weight: bold;
+  color: #000;
+}
+
+.tab-button:hover {
+  transform: scale(1.05); /* Enlarge slightly on hover */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Tab Content Styling */
+.tab-content {
+  position: absolute;
+  top: 150px; /* Position the content below the tabs */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent content background */
+  padding: 20px;
+  border-radius: 12px;
+  width: 50%;
+  color: white;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.tab-content h2 {
+  margin: 0 0 10px;
+}
+
+.tab-content p {
+  margin: 0;
+  color: #ddd;
+}
+
+button {
+  background-color: transparent; /* Makes the button transparent */
+  border: 2px solid white; /* White border for visibility */
+  color: white; /* White text color */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px; /* Rounded corners */
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light white overlay on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tab-content {
+    width: 80%;
+  }
+  .header {
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    padding: 10px;
+  }
+  .tabs-nav {
+    flex-direction: column; /* Stack tabs vertically */
+  }
+}
