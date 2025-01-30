@@ -16,7 +16,7 @@ function App() {
             <button>Home</button>
           </Link>
           <Link to="/anime" className="tab-link">
-            <button>Help</button>
+              <button>Anime</button>
           </Link>
           <Link to="/about" className="tab-link">
             <button>About</button>

@@ -1,15 +1,40 @@
-import React, { useEffect } from 'react';
+import { useEffect, useState } from "react";
 
-const Anime = () => {
+function Anime() {
+  const [movies, setMovies] = useState([]);
+
   useEffect(() => {
-    alert('Hi, welcome to the Anime page!');
-  }, []); // Empty dependency array ensures this runs only once when the component mounts
+    const fetchMovies = async () => {
+      try {
+        const response = await fetch(
+          "https://api.themoviedb.org/3/trending/all/day?api_key=4219e299c89411838049ab0dab19ebd5&language=en-US"
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("API Response:", data);
+        setMovies(data.results);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchMovies();
+  }, []);
 
   return (
     <div>
-      <header className="header"></header>
+      <h1>Anime Section</h1>
+      <ul>
+        {movies.map((movie) => (
+          <li key={movie.id}>{movie.title || movie.name}</li>
+        ))}
+      </ul>
     </div>
   );
-};
+}
 
 export default Anime;
